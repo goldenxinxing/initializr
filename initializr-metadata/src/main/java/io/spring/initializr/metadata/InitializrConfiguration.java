@@ -486,9 +486,9 @@ public class InitializrConfiguration {
 		 */
 		public static class Maven {
 
-			private static final String DEFAULT_PARENT_GROUP_ID = "org.springframework.boot";
+			private static final String DEFAULT_PARENT_GROUP_ID = "com.megvii.framework";
 
-			private static final String DEFAULT_PARENT_ARTIFACT_ID = "spring-boot-starter-parent";
+			private static final String DEFAULT_PARENT_ARTIFACT_ID = "base-parent";
 
 			/**
 			 * Custom parent pom to use for generated projects.

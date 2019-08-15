@@ -96,7 +96,7 @@ public class InitializrProperties extends InitializrConfiguration {
 	 * Description metadata.
 	 */
 	@JsonIgnore
-	private final SimpleElement description = new SimpleElement("Demo project for Spring Boot");
+	private final SimpleElement description = new SimpleElement("Demo project for base framework");
 
 	/**
 	 * Package name metadata.
