@@ -35,6 +35,8 @@ public class ProjectDescription {
 
 	private Version platformVersion;
 
+	private Version parentVersion;
+
 	private BuildSystem buildSystem;
 
 	private Packaging packaging;
@@ -73,6 +75,14 @@ public class ProjectDescription {
 
 	public void setPlatformVersion(Version platformVersion) {
 		this.platformVersion = platformVersion;
+	}
+
+	public Version getParentVersion() {
+		return this.parentVersion;
+	}
+
+	public void setParentVersion(Version parentVersion) {
+		this.parentVersion = parentVersion;
 	}
 
 	public BuildSystem getBuildSystem() {

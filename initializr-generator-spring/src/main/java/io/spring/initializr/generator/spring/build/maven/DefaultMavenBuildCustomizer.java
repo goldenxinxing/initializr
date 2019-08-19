@@ -50,7 +50,8 @@ public class DefaultMavenBuildCustomizer implements BuildCustomizer<MavenBuild> 
 
 		Maven maven = this.metadata.getConfiguration().getEnv().getMaven();
 		String springBootVersion = this.projectDescription.getPlatformVersion().toString();
-		ParentPom parentPom = maven.resolveParentPom(springBootVersion);
+		String parentVersion = this.projectDescription.getParentVersion().toString();
+		ParentPom parentPom = maven.resolveParentPom(parentVersion);
 		if (parentPom.isIncludeSpringBootBom()) {
 			String versionProperty = "spring-boot.version";
 			BillOfMaterials springBootBom = MetadataBuildItemMapper

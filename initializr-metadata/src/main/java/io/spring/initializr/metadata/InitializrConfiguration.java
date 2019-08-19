@@ -486,6 +486,10 @@ public class InitializrConfiguration {
 		 */
 		public static class Maven {
 
+			private static final String BOOT_PARENT_GROUP_ID = "org.springframework.boot";
+
+			private static final String BOOT_PARENT_ARTIFACT_ID = "spring-boot-starter-parent";
+
 			private static final String DEFAULT_PARENT_GROUP_ID = "com.megvii.framework";
 
 			private static final String DEFAULT_PARENT_ARTIFACT_ID = "base-parent";
@@ -525,8 +529,8 @@ public class InitializrConfiguration {
 			 * parent
 			 */
 			public boolean isSpringBootStarterParent(ParentPom parentPom) {
-				return DEFAULT_PARENT_GROUP_ID.equals(parentPom.getGroupId())
-						&& DEFAULT_PARENT_ARTIFACT_ID.equals(parentPom.getArtifactId());
+				return BOOT_PARENT_GROUP_ID.equals(parentPom.getGroupId())
+						&& BOOT_PARENT_ARTIFACT_ID.equals(parentPom.getArtifactId());
 			}
 
 			/**
@@ -596,10 +600,8 @@ public class InitializrConfiguration {
 				}
 
 				public void validate() {
-					if (!((!StringUtils.hasText(this.groupId) && !StringUtils.hasText(this.artifactId)
-							&& !StringUtils.hasText(this.version))
-							|| (StringUtils.hasText(this.groupId) && StringUtils.hasText(this.artifactId)
-									&& StringUtils.hasText(this.version)))) {
+					if (!((!StringUtils.hasText(this.groupId) && !StringUtils.hasText(this.artifactId))
+							|| (StringUtils.hasText(this.groupId) && StringUtils.hasText(this.artifactId)))) {
 						throw new InvalidInitializrMetadataException(
 								"Custom maven pom " + "requires groupId, artifactId and version");
 					}
