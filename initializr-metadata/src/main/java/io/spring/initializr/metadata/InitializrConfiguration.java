@@ -600,8 +600,10 @@ public class InitializrConfiguration {
 				}
 
 				public void validate() {
-					if (!((!StringUtils.hasText(this.groupId) && !StringUtils.hasText(this.artifactId))
-							|| (StringUtils.hasText(this.groupId) && StringUtils.hasText(this.artifactId)))) {
+					if (!((!StringUtils.hasText(this.groupId) && !StringUtils.hasText(this.artifactId)
+							&& !StringUtils.hasText(this.version))
+							|| (StringUtils.hasText(this.groupId) && StringUtils.hasText(this.artifactId)
+									&& StringUtils.hasText(this.version)))) {
 						throw new InvalidInitializrMetadataException(
 								"Custom maven pom " + "requires groupId, artifactId and version");
 					}
