@@ -52,6 +52,8 @@ public final class Version implements Serializable, Comparable<Version> {
 
 	private final Qualifier qualifier;
 
+	private String origin;
+
 	public Version(Integer major, Integer minor, Integer patch, Qualifier qualifier) {
 		this.major = major;
 		this.minor = minor;
@@ -73,6 +75,10 @@ public final class Version implements Serializable, Comparable<Version> {
 
 	public Qualifier getQualifier() {
 		return this.qualifier;
+	}
+
+	public void setOrigin(String origin) {
+		this.origin = origin;
 	}
 
 	/**
@@ -190,6 +196,10 @@ public final class Version implements Serializable, Comparable<Version> {
 
 	@Override
 	public String toString() {
+		return ((this.origin != null) ? this.origin : this.toStr());
+	}
+
+	private String toStr() {
 		return this.major + "." + this.minor + "." + this.patch + ((this.qualifier != null)
 				? "." + this.qualifier.qualifier + ((this.qualifier.version != null) ? this.qualifier.version : "")
 				: "");
